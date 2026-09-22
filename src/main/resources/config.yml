@@ -1,0 +1,38 @@
+# IvoryCommands Configuration
+
+# Resize configuration
+resize:
+  min-size: 0.75
+  max-size: 1.25
+  reset-size-on-join: false
+  reset-size-on-quit: false
+
+# Character names configuration
+character-names:
+  min-length: 3
+  max-length: 32
+  allow-colors: false
+  show-name-in-nameplate: true
+  separator: " ➜ "
+  filter-pet-team-prefix: true
+  override-book-author: true
+
+# Inventory blocker
+inventory-blocker:
+  enchanting-table-blocked: true
+  grindstone-blocked: true
+  prevent-anvil-enchantments: true
+
+# Mob behaviours
+mob-behaviours:
+  loot-blocked: false
+  loot-conversion: true
+
+# Conversions
+conversions:
+  remove-enchanted-books: false
+  convert-vanilla-to-mm-items: true
+  convert-crafted-vanilla-to-mm: true
+  version-replace-enabled: true
+  version-replace-item-groups:
+    - Paper

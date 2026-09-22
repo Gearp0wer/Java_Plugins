@@ -1,0 +1,72 @@
+name: IvoryCommands
+main: com.ivory.commands.IvoryCommands
+version: 1.3.0
+api-version: 1.21
+depend: [Essentials, ProtocolLib, PlaceholderAPI]
+
+commands:
+  ivorycommands:
+    description: Main IvoryCommands command
+    usage: /ivorycommands config <set|get|reload> [path] [value]
+    permission: ivorycommands.config
+    
+  ic:
+    description: Short alias for IvoryCommands
+    usage: /ic config <set|get|reload> [path] [value]
+    permission: ivorycommands.config
+    
+  resize:
+    description: Resize yourself or other players
+    usage: /resize <size> [player]
+
+  name:
+    description: Set or view character names
+    usage: /name [set|view|clear] <character_name> [player]
+    permission: ivorycommands.name.use
+    
+  archeo:
+    description: Create suspicious sand or gravel containing the held item
+    usage: /archeo <sand|gravel>
+    permission: ivorycommands.archeo.use
+    
+  injury:
+    description: Manage roleplay injuries with persistent effects
+    usage: /injury <add|remove|list|help> [injury_name] [player] [unremovable]
+    permission: ivorycommands.injury.use
+
+permissions:
+  ivorycommands.config:
+    description: Allows reloading the plugin and modifying configs
+    default: op
+    
+  ivorycommands.resizer.use:
+    description: Allows using the resize command on yourself
+    default: true
+    
+  ivorycommands.resizer.admin:
+    description: Allows resizing other players
+    default: op
+    
+  ivorycommands.resizer.bypass:
+    description: Allows bypassing size limits
+    default: op
+
+  ivorycommands.name.use:
+    description: Allows setting own character name
+    default: true
+    
+  ivorycommands.name.admin:
+    description: Allows setting other players' character names
+    default: op
+    
+  ivorycommands.archeo.use:
+    description: Allows creating suspicious sand/gravel blocks
+    default: op
+    
+  ivorycommands.injury.use:
+    description: Allows managing own injuries
+    default: true
+    
+  ivorycommands.injury.admin:
+    description: Allows managing other players' injuries and creating staff-only injuries
+    default: op

@@ -1,0 +1,53 @@
+# Injury System Configuration
+# This file contains injury type definitions and all related messages
+
+# Available injury types
+# Format:
+#   injury_name:
+#     display-name: "Display Name with color codes"
+#     effects:
+#       - "EFFECT_NAME:LEVEL"
+types:
+  legs:
+    display-name: "&cLeg Injury"
+    effects:
+      - "SLOWNESS:1"
+  arms:
+    display-name: "&cArm Injury"
+    effects:
+      - "WEAKNESS:1"
+  eyes:
+    display-name: "&cEye Injury"
+    effects:
+      - "DARKNESS:1"
+
+# Messages (supports color codes with &)
+# Placeholders: %player%, %injury%, %subcommand%
+messages:
+  no-permission: "&cYou don't have permission to use this command."
+  no-permission-admin: "&cYou don't have permission to manage other players' injuries."
+  must-specify-player: "&cYou must specify a player when using this command from console."
+  player-not-found: "&cPlayer '%player%' not found."
+  unknown-subcommand: "&cUnknown subcommand: %subcommand%. Use /injury help for help."
+  
+  # Add messages
+  usage-add-player: "&eUsage: /injury add <injury_name>"
+  usage-add-admin: "&eUsage: /injury add <injury_name> [player] [unremovable]"
+  invalid-injury: "&cInvalid injury type: %injury%. Use /injury help to see available injuries."
+  injury-already-exists: "&c%player% already has %injury%."
+  injury-added-self: "&aYou have received %injury%."
+  injury-added-other: "&aYou have given %player% %injury%."
+  injury-received: "&cYou have received %injury%."
+  
+  # Remove messages
+  usage-remove-player: "&eUsage: /injury remove <injury_name>"
+  usage-remove-admin: "&eUsage: /injury remove <injury_name> [player]"
+  injury-not-found: "&c%player% doesn't have %injury%."
+  injury-staff-only: "&cThis injury is unremovable."
+  injury-removed-self: "&aYou have removed %injury%."
+  injury-removed-other: "&aYou have removed %injury% from %player%."
+  injury-cleared: "&a%injury% has been removed from you."
+  
+  # List messages
+  no-injuries-self: "&aYou have no injuries."
+  no-injuries-other: "&a%player% has no injuries."
