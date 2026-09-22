@@ -377,6 +377,47 @@ public class CharacterNameManager {
         }
     }
 
+/**
+ * Notes:
+ * 
+ * Transcribing this into the file itself so I don't have to keep referencing the log. Omitting sensitive user information.
+ * This was meant to prevent the player's dog's name from being overwritten with the player's custom name.
+ * This feature is currently disabled on the live servers.
+ *
+ * [16:07:34] [Server thread/INFO]: Cl0wnc1cle joined the game
+[16:07:34] [Server thread/INFO]: Cl0wnc1cle[] logged in with entity id 10935 at ([world]1268.9447636767034, 75.0, 620.326994496424)
+[16:07:34] [Server thread/INFO]: [IvoryCommands] Injected handler for player: Cl0wnc1cle
+[16:07:35] [Server thread/INFO]: Cl0wnc1cle lost connection: Internal Exception: java.lang.UnsupportedOperationException
+[16:07:35] [Server thread/INFO]: Cl0wnc1cle left the game
+[16:07:35] [Server thread/WARN]: [IvoryCommands] Task #3992 for IvoryCommands v1.2.5 generated an exception
+java.lang.NullPointerException: player is marked non-null but is null
+	at TAB.v6.0.2.-.Vanilla.jar//me.neznamy.tab.shared.features.nametags.NameTag.setSuffix(NameTag.java:438) ~[?:?]
+	at IvoryCommands-1.3.jar//com.ivory.commands.name.CharacterNameManager.updateNameplate(CharacterNameManager.java:384) ~[?:?]
+	at IvoryCommands-1.3.jar//com.ivory.commands.name.CharacterNameManager.lambda$setupPlayerNameplate$0(CharacterNameManager.java:411) ~[?:?]
+	at org.bukkit.craftbukkit.scheduler.CraftTask.run(CraftTask.java:78) ~[paper-1.21.11.jar:1.21.11-131-6d5b910]
+	at org.bukkit.craftbukkit.scheduler.CraftScheduler.mainThreadHeartbeat(CraftScheduler.java:474) ~[paper-1.21.11.jar:1.21.11-131-6d5b910]
+	at net.minecraft.server.MinecraftServer.tickChildren(MinecraftServer.java:1756) ~[paper-1.21.11.jar:1.21.11-131-6d5b910]
+	at net.minecraft.server.MinecraftServer.tickServer(MinecraftServer.java:1611) ~[paper-1.21.11.jar:1.21.11-131-6d5b910]
+	at net.minecraft.server.dedicated.DedicatedServer.tickServer(DedicatedServer.java:427) ~[paper-1.21.11.jar:1.21.11-131-6d5b910]
+	at net.minecraft.server.MinecraftServer.processPacketsAndTick(MinecraftServer.java:1667) ~[paper-1.21.11.jar:1.21.11-131-6d5b910]
+	at net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:1335) ~[paper-1.21.11.jar:1.21.11-131-6d5b910]
+	at net.minecraft.server.MinecraftServer.lambda$spin$2(MinecraftServer.java:388) ~[paper-1.21.11.jar:1.21.11-131-6d5b910]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[?:?]
+[16:07:46] [User Authenticator #0/INFO]: UUID of player Cl0wnc1cle is aa5aa27d-326a-4c8c-a382-65a6311802a2
+
+ * How to replicate: Log on to a server running 1.21.11 
+ * set a custom nickname via the usual method of /nickname while having a dog with a custom name present in the same chunk. 
+ * 
+ * Currently cannot check because the game's authentication servers have gone down and now prevent me from logging in. 
+ * Currently cannot examine the crashlogs either, because the event is not properly being logged in the console. 
+ * Introducing other logs is not currently providing more information. Have reset all changes and I'm only pushing these notes.
+ * Cannot log it via the client, because the issue is server side.  
+ * First order of business when I get back from work:  
+ * check auth servers, then try to narrow down if it really is just dogs, because they are not the only pets that can be renamed.
+ */
+
+
+    
     public void updateNameplate(Player player) {
         if (player == null || !player.isOnline()) {
             return;
