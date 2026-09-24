@@ -412,8 +412,12 @@ java.lang.NullPointerException: player is marked non-null but is null
  * Currently cannot examine the crashlogs either, because the event is not properly being logged in the console. 
  * Introducing other logs is not currently providing more information. Have reset all changes and I'm only pushing these notes.
  * Cannot log it via the client, because the issue is server side.  
- * First order of business when I get back from work:  
- * check auth servers, then try to narrow down if it really is just dogs, because they are not the only pets that can be renamed.
+ *
+ *  Update: 9/23
+ * So, this is what I get for trying to do fast work. 
+ * When I was asked to submit a code sample, I wanted to submit some broken code with a funny but serious bug.
+ * That way I could show my debugging process via github. Instead I uploaded the version I had just finished fixing, and claimed it was broken work. 
+ * That is entirely my fault. I had both versions saved locally with similar names, and selected the wrong one. 
  */
 
 
